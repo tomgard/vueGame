@@ -1,0 +1,28 @@
+body {
+    padding:0px;
+    margin:0px;
+}
+#gameContainer {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.cell {
+    display:block;
+    float: left;
+    border: 0px;
+    background:red;
+    text-align:center;
+    padding:0px;
+    margin:0px;
+    box-sizing: border-box;
+    border:1px solid black;
+    font-size:9px;
+    vertical-align: middle;
+    overflow:hidden;
+    height:16px;
+    width:16px;
+}

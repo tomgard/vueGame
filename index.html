@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src='utils.js'></script>
+        <script src='js.js'></script>
+        <link type="text/css" rel="stylesheet" href="css.css"/>
+    </head>
+    <body>
+        <div id="gameContainer">
+            <div v-for="item in items" class="cell">
+                {{ item.message }}
+            </div>
+        </div>
+    </body>
+</html>
