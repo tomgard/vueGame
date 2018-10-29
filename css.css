@@ -9,6 +9,7 @@ body {
     left: 0;
     right: 0;
     margin: auto;
+    width:calc(16px*13);
 }
 .cell {
     display:block;
