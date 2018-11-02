@@ -15,15 +15,15 @@ $(function() {
         methods: {
             buildGameContainer: function() {
                 var content = [];
-                for(var r=0;r<gameContainer.screenWidth;r++){
-                    for(var c=0;c<gameContainer.screenHeight;c++){
-                        var index = r*(gameContainer.mapWidth/gameContainer.tileSize)+c;
-                        content.push(gameContainer.getMapFromIndex(index));
+                for(var c=0;c<13;c++){
+                    for(var r=0;r<9;r++){
+                        content.push(gameContainer.getMapFromIndex(c+(r*30)));
                     }
                 }
                 gameContainer.items = content;
             },
             getMapFromIndex: function(index) {
+                console.log("Index: "+index);
                 var mapTile = mapFile.layers[0].data[index];
                 return {
                     column:Math.floor(mapTile),
