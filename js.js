@@ -10,21 +10,26 @@ $(function() {
             y: 5,
             screenWidth:13,
             screenHeight:9,
-            mapWidth: mapFile.tilesets["0"].imagewidth
+            mapWidth: 50*16,
+            mapHeight: 38
+        },
+        mounted:  function(){
+        	$('#gameContainer').width(50*16);
         },
         methods: {
             buildGameContainer: function() {
                 var content = [];
-                for(var c=0;c<13;c++){
-                    for(var r=0;r<9;r++){
-                        content.push(gameContainer.getMapFromIndex(c+(r*30)));
+                for(var r=0;r<38;r++){
+                    for(var c=0;c<50;c++){
+                        content.push(gameContainer.getMapFromIndex(c+(r*50)));
                     }
                 }
                 gameContainer.items = content;
             },
             getMapFromIndex: function(index) {
-                console.log("Index: "+index);
+                
                 var mapTile = mapFile.layers[0].data[index];
+                
                 return {
                     column:Math.floor(mapTile),
                     row : mapTile.toString().includes(".")? mapTile.toString().split(".")[1]:0
@@ -35,4 +40,3 @@ $(function() {
     
     gameContainer.buildGameContainer();
 });
-
