@@ -5,13 +5,14 @@
         <script src='utils.js'></script>
         <script src='js.js'></script>
         <link type="text/css" rel="stylesheet" href="css.css"/>
-		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     </head>
     <body>
         <div id="gameContainer">
+            <div class="offScreenFilter">
+                
+            </div>
             <div v-for="item in items" class="cell">
                 <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
             </div>
-        </div>
     </body>
 </html>

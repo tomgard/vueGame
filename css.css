@@ -1,6 +1,6 @@
 body {
-    padding:0px;
-    margin:0px;
+    padding: 0px;
+    margin: 0px;
 }
 #gameContainer {
     position: absolute;
@@ -11,17 +11,26 @@ body {
     margin: auto;
 }
 .cell {
-    display:block;
+    display: block;
     float: left;
     border: 0px;
-    background:black;
-    text-align:center;
-    padding:0px;
-    margin:0px;
+    background: black;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
     box-sizing: border-box;
-    font-size:9px;
+    font-size: 9px;
     vertical-align: middle;
-    overflow:hidden;
-    height:16px;
-    width:16px;
+    overflow: hidden;
+    height: 16px;
+    width: 16px;
+}
+.offScreenFilter {
+    border: 16px solid rgba(255, 0, 0, .5);
+    height: 112px;
+    width: calc(100% - 32px);
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
