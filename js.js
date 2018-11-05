@@ -26,19 +26,16 @@ $(function() {
         },
         methods: {
             buildGameContainer: function() {
-                debugger;
                 var content = [];
-                for(var r=0;r<this.screenHeight;r++){
-                    for(var c=0;c<this.screenWidth;c++){
-                        content.push(this.getMapFromIndex(c+(r*this.mapWidth)));
+                for(var r = 0; r < this.screenHeight; r++){
+                    for(var c = 0; c < this.screenWidth; c++){
+                        content.push(this.getMapFromIndex( c + ( r * this.mapWidth ) ) );
                     }
                 }
                 this.items = content;
             },
             getMapFromIndex: function(index) {
-                
                 var mapTile = map.layers[0].data[index];
-                
                 return {
                     column: Math.floor(mapTile),
                     row : mapTile.toString().includes(".")? mapTile.toString().split(".")[1]:0
