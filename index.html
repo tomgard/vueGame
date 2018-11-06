@@ -7,12 +7,13 @@
         <link type="text/css" rel="stylesheet" href="css.css"/>
     </head>
     <body>
-        <div id="gameContainer">
+        <div id="gameContainer" v-bind:style="{ 'width': screenWidthPixels + 'px', 'display':  display}">
             <div class="offScreenFilter">
                 
             </div>
             <div v-for="item in items" class="cell">
                 <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
             </div>
+        </div>
     </body>
 </html>

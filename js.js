@@ -12,6 +12,7 @@ $(function() {
     game = new Vue({
         el: '#gameContainer',
         data: {
+            display:'none',
             items: [],
             tileSize: map.tilesets[0].tilewidth,
             x: 5,
@@ -20,13 +21,16 @@ $(function() {
             screenHeight: 9,
             offScreenBuffer: 1,
             mapWidth: map.canvas.width / map.tilesets[0].tilewidth,
-            //mapHeight: map.canvas.height / map.tilesets[0].tilewidth,
             imageWidth: map.tilesets[0].imagewidth / map.tilesets[0].tilewidth,
             imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth
-            
+        },
+        computed: {
+            screenWidthPixels: function () {
+                return this.screenWidth * this.tileSize;
+            }
         },
         mounted:  function(){
-        	$('#gameContainer').width(this.screenWidth * this.tileSize);
+            this.display = "block";
         },
         methods: {
             buildGameContainer: function() {
