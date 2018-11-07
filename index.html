@@ -7,13 +7,16 @@
         <link type="text/css" rel="stylesheet" href="css.css"/>
     </head>
     <body>
-        <div id="gameContainer" v-bind:style="{ 'width': screenWidthPixels + 'px', 'display':  display}">
-            <div class="offScreenFilter">
-                
+        <div id="gameContainer" >
+            <div class="tileArea" v-bind:style="{ 'width': screenWidthPixels + 'px', 'display':  display}">
+                <div class="offScreenFilter">
+                    
+                </div>
+                <div v-for="item in items" class="cell">
+                    <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
+                </div>
             </div>
-            <div v-for="item in items" class="cell">
-                <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
-            </div>
+            <input id="control" v-on:keyup.up.down.left.right="keyDown($event)" type="text" />
         </div>
     </body>
 </html>

@@ -15,8 +15,8 @@ $(function() {
             display:'none',
             items: [],
             tileSize: map.tilesets[0].tilewidth,
-            x: 5,
-            y: 5,
+            x: 1,
+            y: 1,
             screenWidth: 13,
             screenHeight: 9,
             offScreenBuffer: 1,
@@ -31,12 +31,13 @@ $(function() {
         },
         mounted:  function(){
             this.display = "block";
+            document.getElementById("control").focus();
         },
         methods: {
             buildGameContainer: function() {
                 var content = [];
-                for(var r = 0; r < this.screenHeight; r++){
-                    for(var c = 0; c < this.screenWidth; c++){
+                for(var r = this.y; r < this.screenHeight+this.y; r++){
+                    for(var c = this.x; c < this.screenWidth+this.x; c++){
                         content.push(this.getMapFromIndex( c + ( r * this.mapWidth ) ) );
                     }
                 }
@@ -48,6 +49,17 @@ $(function() {
                     column: Math.floor(mapTile),
                     row : mapTile.toString().includes(".")? mapTile.toString().split(".")[1]:0
                 };
+            },
+            keyDown: function(event) {
+                var directionChanges = {
+                    ArrowUp:     {x:0,   y:-1},
+                    ArrowDown:   {x:0,   y:1},
+                    ArrowLeft:   {x:-1,   y:0},
+                    ArrowRight:  {x:0,   y:1}
+                }
+                var directionChange = directionChanges[event.key];
+                this.x += directionChange.x;
+                this.y += directionChange.y;
             }
         }
     });

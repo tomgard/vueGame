@@ -2,7 +2,7 @@ body {
     padding: 0px;
     margin: 0px;
 }
-#gameContainer {
+.tileArea {
     position: absolute;
     top:0;
     bottom: 0;
@@ -33,4 +33,9 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+}
+#control {
+    position:absolute;
+    top:-1000px;
+    left:-1000px;
 }
