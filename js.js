@@ -14,12 +14,13 @@ $(function() {
         data: {
             display:'none',
             tileSize: map.tilesets[0].tilewidth,
-            x: 1,
-            y: 1,
+            x: 0,
+            y: 0,
             screenWidth: 13,
             screenHeight: 9,
             offScreenBuffer: 1,
             mapWidth: map.canvas.width / map.tilesets[0].tilewidth,
+            mapHeight: map.canvas.height / map.tilesets[0].tileheight,
             imageWidth: map.tilesets[0].imagewidth / map.tilesets[0].tilewidth,
             imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth
         },
@@ -57,8 +58,10 @@ $(function() {
                     ArrowRight:  {x:1,   y:0}
                 }
                 var directionChange = directionChanges[event.key];
-                this.x += directionChange.x;
-                this.y += directionChange.y;
+                var newX = this.x + directionChange.x;
+                var newY = this.y + directionChange.y;
+                this.x = newX > -1 && newX + this.screenWidth < this.mapWidth+1? newX : this.x;
+                this.y = newY > -1 && newY + this.screenHeight < this.mapHeight+1? newY : this.y;
             }
         }
     });
