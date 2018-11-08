@@ -13,7 +13,6 @@ $(function() {
         el: '#gameContainer',
         data: {
             display:'none',
-            items: [],
             tileSize: map.tilesets[0].tilewidth,
             x: 1,
             y: 1,
@@ -27,22 +26,22 @@ $(function() {
         computed: {
             screenWidthPixels: function () {
                 return this.screenWidth * this.tileSize;
-            }
-        },
-        mounted:  function(){
-            this.display = "block";
-            document.getElementById("control").focus();
-        },
-        methods: {
-            buildGameContainer: function() {
+            },
+            items: function () {
                 var content = [];
                 for(var r = this.y; r < this.screenHeight+this.y; r++){
                     for(var c = this.x; c < this.screenWidth+this.x; c++){
                         content.push(this.getMapFromIndex( c + ( r * this.mapWidth ) ) );
                     }
                 }
-                this.items = content;
-            },
+                return content;
+            }
+        },
+        mounted:  function(){
+            this.display = "block";
+            $("#control").focus();
+        },
+        methods: {
             getMapFromIndex: function(index) {
                 var mapTile = map.layers[0].data[index];
                 return {
@@ -55,7 +54,7 @@ $(function() {
                     ArrowUp:     {x:0,   y:-1},
                     ArrowDown:   {x:0,   y:1},
                     ArrowLeft:   {x:-1,   y:0},
-                    ArrowRight:  {x:0,   y:1}
+                    ArrowRight:  {x:1,   y:0}
                 }
                 var directionChange = directionChanges[event.key];
                 this.x += directionChange.x;
@@ -63,6 +62,5 @@ $(function() {
             }
         }
     });
-    
-    game.buildGameContainer();
+    $("#control").blur(function() {this.focus()});
 });
