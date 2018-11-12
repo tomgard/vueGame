@@ -42,10 +42,13 @@ body {
 .sprite{
     z-index:999999;
     width:16px;
-    height:16px;
-    background:yellow;
+    height:18px;
     position:absolute;
-    top:64px;
+    top:62px;
     left:96px;
     overflow:hidden;
+}
+.spriteBackground {
+    height:72px;
+    width:48px;
 }

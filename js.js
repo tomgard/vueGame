@@ -4,6 +4,8 @@ $(function() {
         el: '#gameContainer',
         data: {
             display:'none',
+            player: "sprites/mage_m.png",
+            playerRow: 2,
             tileSize: map.tilesets[0].tilewidth,
             x: 0,
             y: 0,
@@ -13,7 +15,8 @@ $(function() {
             mapWidth: map.canvas.width / map.tilesets[0].tilewidth,
             mapHeight: map.canvas.height / map.tilesets[0].tileheight,
             imageWidth: map.tilesets[0].imagewidth / map.tilesets[0].tilewidth,
-            imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth
+            imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth,
+            direction: "down"
         },
         computed: {
             screenWidthPixels: function () {
@@ -43,16 +46,23 @@ $(function() {
             },
             keyDown: function(event) {
                 var directionChanges = {
-                    ArrowUp:     {x:0,   y:-1},
-                    ArrowDown:   {x:0,   y:1},
-                    ArrowLeft:   {x:-1,   y:0},
-                    ArrowRight:  {x:1,   y:0}
+                    ArrowUp:     {x:0,   y:-1, spritePos: 0},
+                    ArrowDown:   {x:0,   y:1,  spritePos: 2},
+                    ArrowLeft:   {x:-1,  y:0,  spritePos: 3},
+                    ArrowRight:  {x:1,   y:0,  spritePos: 1}
                 }
                 var directionChange = directionChanges[event.key];
-                var newX = this.x + directionChange.x;
-                var newY = this.y + directionChange.y;
-                this.x = newX > -1 && newX + this.screenWidth < this.mapWidth+1? newX : this.x;
-                this.y = newY > -1 && newY + this.screenHeight < this.mapHeight+1? newY : this.y;
+                var direction = event.key.replace("Arrow","");
+                if(directionChange){
+                    if(direction == this.direction) {
+                        var newX = this.x + directionChange.x;
+                        var newY = this.y + directionChange.y;
+                        this.x = newX > -1 && newX + this.screenWidth < this.mapWidth+1? newX : this.x;
+                        this.y = newY > -1 && newY + this.screenHeight < this.mapHeight+1? newY : this.y;
+                    }
+                    this.direction = event.key.replace("Arrow","");
+                    this.playerRow = directionChanges[event.key].spritePos;
+                }
             }
         }
     });
