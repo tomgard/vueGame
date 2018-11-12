@@ -39,3 +39,13 @@ body {
     top:-1000px;
     left:-1000px;
 }
+.sprite{
+    z-index:999999;
+    width:16px;
+    height:16px;
+    background:yellow;
+    position:absolute;
+    top:64px;
+    left:96px;
+    overflow:hidden;
+}
