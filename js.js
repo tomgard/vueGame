@@ -16,7 +16,8 @@ $(function() {
             mapHeight: map.canvas.height / map.tilesets[0].tileheight,
             imageWidth: map.tilesets[0].imagewidth / map.tilesets[0].tilewidth,
             imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth,
-            direction: "down"
+            direction: "down",
+            screenShift: 0
         },
         computed: {
             screenWidthPixels: function () {
@@ -30,6 +31,20 @@ $(function() {
                     }
                 }
                 return content;
+            },
+            screenShiftMovementY: function() {
+                var change = {
+                    up: -1,
+                    down: 1
+                }
+                return this.screenShift * change[this.direction];
+            },
+            screenShiftMovementX: function() {
+                var change = {
+                    left: -1,
+                    right: 1
+                }
+                return this.screenShift * change[this.direction];
             }
         },
         mounted:  function(){
