@@ -56,7 +56,7 @@ $(function() {
         mounted:  function(){
             this.display = "block";
             $("#control").focus();
-            if(!this.tickStarted){this.tick();}
+            if(!this.tickStarted){this.startTick();}
         },
         methods: {
             getMapFromIndex: function(index) {
@@ -87,7 +87,7 @@ $(function() {
                     this.playerRow = directionChanges[event.key].spritePos;
                 }
             },
-            tick: function() {
+            startTick: function() {
                 this.tickStarted = true;
                 setInterval(function(){
                     console.log(game.screenShiftMovementY+" "+game.screenShiftMovementX);
