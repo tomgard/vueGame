@@ -6,6 +6,7 @@ $(function() {
             display:'none',
             player: "sprites/mage_m.png",
             playerRow: 2,
+            fps: 25,
             tileSize: map.tilesets[0].tilewidth,
             x: 0,
             y: 0,
@@ -17,7 +18,8 @@ $(function() {
             imageWidth: map.tilesets[0].imagewidth / map.tilesets[0].tilewidth,
             imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth,
             direction: "down",
-            screenShift: 0
+            screenShift: 0,
+            tickStarted: false
         },
         computed: {
             screenWidthPixels: function () {
@@ -35,21 +37,26 @@ $(function() {
             screenShiftMovementY: function() {
                 var change = {
                     up: -1,
-                    down: 1
+                    down: 1,
+                    left: 0,
+                    down: 0
                 }
-                return this.screenShift * change[this.direction];
+                return this.screenShift * change[this.direction.toLowerCase()];
             },
             screenShiftMovementX: function() {
                 var change = {
                     left: -1,
-                    right: 1
+                    right: 1,
+                    up: 0,
+                    down: 0
                 }
-                return this.screenShift * change[this.direction];
+                return this.screenShift * change[this.direction.toLowerCase()];
             }
         },
         mounted:  function(){
             this.display = "block";
             $("#control").focus();
+            if(!this.tickStarted){this.tick();}
         },
         methods: {
             getMapFromIndex: function(index) {
@@ -68,8 +75,9 @@ $(function() {
                 }
                 var directionChange = directionChanges[event.key];
                 var direction = event.key.replace("Arrow","");
-                if(directionChange){
+                if(directionChange && this.screenShift === 0){
                     if(direction == this.direction) {
+                        this.screenShift = 16;
                         var newX = this.x + directionChange.x;
                         var newY = this.y + directionChange.y;
                         this.x = newX > -1 && newX + this.screenWidth < this.mapWidth+1? newX : this.x;
@@ -78,6 +86,19 @@ $(function() {
                     this.direction = event.key.replace("Arrow","");
                     this.playerRow = directionChanges[event.key].spritePos;
                 }
+            },
+            tick: function() {
+                this.tickStarted = true;
+                setInterval(function(){
+                    console.log(game.screenShiftMovementY+" "+game.screenShiftMovementX);
+                    if(game.screenShift !== 0){
+                        if(game.screenShift > 0) {
+                            game.screenShift--;
+                        } else {
+                            game.screenShift++;
+                        }
+                    }
+                } , (1000/25) );
             }
         }
     });

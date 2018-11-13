@@ -17,8 +17,10 @@
                 <div class="offScreenFilter">
                     
                 </div>
-                <div v-for="item in items" class="cell">
-                    <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
+                <div id="screenShift" v-bind:style="{ 'width': screenWidthPixels + 'px', 'margin-left': screenShiftMovementX + 'px', 'margin-top': screenShiftMovementY + 'px' }">
+                    <div v-for="item in items" class="cell">
+                        <img src='tile.png' v-bind:style="{ 'margin-left': -item.column * tileSize + 'px', 'margin-top': -item.row * tileSize + 'px' }" />
+                    </div>
                 </div>
             </div>
             <input id="control" v-on:keyup.up.down.left.right="keyDown($event)" type="text" />
