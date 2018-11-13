@@ -41,7 +41,7 @@ $(function() {
                     left: 0,
                     down: 0
                 }
-                return this.screenShift * change[this.direction.toLowerCase()];
+                return this.screenShift * change[this.direction];
             },
             screenShiftMovementX: function() {
                 var change = {
@@ -50,7 +50,7 @@ $(function() {
                     up: 0,
                     down: 0
                 }
-                return this.screenShift * change[this.direction.toLowerCase()];
+                return this.screenShift * change[this.direction];
             }
         },
         mounted:  function(){
@@ -74,9 +74,9 @@ $(function() {
                     ArrowRight:  {x:1,   y:0,  spritePos: 1}
                 }
                 var directionChange = directionChanges[event.key];
-                var direction = event.key.replace("Arrow","");
+                var direction = event.key.replace("Arrow","").toLowerCase();
                 if(directionChange && this.screenShift === 0){
-                    if(direction == this.direction) {
+                    if(direction === this.direction) {
                         this.screenShift = 16;
                         var newX = this.x + directionChange.x;
                         var newY = this.y + directionChange.y;
