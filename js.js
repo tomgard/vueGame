@@ -4,7 +4,7 @@ $(function() {
         el: '#gameContainer',
         data: {
             display:'none',
-            player: "sprites/mage_m.png",
+            player: "sprites/ranger_m.png",
             playerRow: 1,
             fps: 25,
             tileSize: map.tilesets[0].tilewidth,
