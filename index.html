@@ -12,7 +12,7 @@
         <div id="gameContainer" >
             <div class="tileArea" v-bind:style="{ 'width': screenWidthPixels + 'px', 'display':  display}">
                 <div class="sprite">
-                    <img v-bind:src="player" class="spriteBackground" v-bind:style="{ 'margin-left': -16 + 'px', 'margin-top': -playerRow*18 + 'px' }" /> 
+                    <img v-bind:src="player" class="spriteBackground" v-bind:style="{ 'margin-left': stepPosition + 'px', 'margin-top': -playerRow*18 + 'px' }" /> 
                 </div>
                 <div class="offScreenFilter">
                     

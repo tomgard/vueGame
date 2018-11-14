@@ -13,6 +13,11 @@ body {
     right: 0;
     margin: auto;
     overflow:hidden;
+    height:144px;
+}
+.screenShift {
+    overflow:hidden;
+    height:144px;
 }
 .cell {
     display: block;
@@ -30,13 +35,14 @@ body {
     width: 16px;
 }
 .offScreenFilter {
-    border: 16px solid rgba(255, 0, 0, .5);
+    border: 16px solid rgba(255, 255, 255, 1);
     height: 112px;
     width: calc(100% - 32px);
     z-index: 100;
     position: absolute;
     top: 0;
     left: 0;
+    overflow:hidden;
 }
 #control {
     position:absolute;
