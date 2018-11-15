@@ -1,9 +1,14 @@
 body {
     padding: 0px;
     margin: 0px;
+    overflow:hidden;
 }
 #screenShift {
     overflow:hidden;
+}
+#gameContainer {
+    margin-top:180px;
+    transform: scale(3);
 }
 .tileArea {
     position: absolute;
@@ -33,6 +38,7 @@ body {
     overflow: hidden;
     height: 16px;
     width: 16px;
+    image-rendering: pixelated;
 }
 .offScreenFilter {
     border: 16px solid rgba(255, 255, 255, 1);
@@ -57,8 +63,16 @@ body {
     top:62px;
     left:96px;
     overflow:hidden;
+    image-rendering: pixelated;
 }
 .spriteBackground {
     height:72px;
     width:48px;
+}
+.debug {
+    z-index:1000000;
+    position:absolute;
+    top:300px;
+    left:0px;
+    background:red;
 }

@@ -4,7 +4,7 @@ $(function() {
         el: '#gameContainer',
         data: {
             display:'none',
-            player: "sprites/ranger_m.png",
+            player: "sprites/ranger_f.png",
             playerRow: 1,
             fps: 25,
             tileSize: map.tilesets[0].tilewidth,
@@ -58,6 +58,26 @@ $(function() {
                     down: 0
                 }
                 return this.screenShift * change[this.direction.toLowerCase()];
+            },
+            debug: function() {
+                return {
+                    up: {
+                        column:0,
+                        row: 0
+                    },
+                    down: {
+                        column:0,
+                        row: 0
+                    },
+                    left: {
+                        column:0,
+                        row: 0
+                    },
+                    right: {
+                        column:0,
+                        row: 0
+                    },
+                }
             }
         },
         mounted:  function(){

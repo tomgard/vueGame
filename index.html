@@ -23,7 +23,13 @@
                     </div>
                 </div>
             </div>
-            <input id="control" v-on:keyup.up.down.left.right="keyDown($event)" type="text" />
+            <input id="control" v-on:keydown.up.down.left.right="keyDown($event)" type="text" />
+            <div class="debug">
+                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -debug.up.column * tileSize + 'px', 'margin-top': -debug.up.row * tileSize + 'px' }" /></div>Up
+                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -debug.down.column * tileSize + 'px', 'margin-top': -debug.down.row * tileSize + 'px' }" /></div>Down
+                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -debug.left.column * tileSize + 'px', 'margin-top': -debug.left.row * tileSize + 'px' }" /></div>Left
+                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -debug.right.column * tileSize + 'px', 'margin-top': -debug.right.row * tileSize + 'px' }" /></div>Right
+            </div>
         </div>
     </body>
 </html>
