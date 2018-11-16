@@ -59,24 +59,13 @@ $(function() {
                 }
                 return this.screenShift * change[this.direction.toLowerCase()];
             },
-            debug: function() {
+            nextToPlayer: function() {
+                console.log("up: r"+this.items[45].row+" c"+this.items[45].column);
                 return {
-                    up: {
-                        column:0,
-                        row: 0
-                    },
-                    down: {
-                        column:0,
-                        row: 0
-                    },
-                    left: {
-                        column:0,
-                        row: 0
-                    },
-                    right: {
-                        column:0,
-                        row: 0
-                    },
+                    up: this.items[45],
+                    down: this.items[71],
+                    left: this.items[57],
+                    right: this.items[59]
                 }
             }
         },
@@ -119,7 +108,6 @@ $(function() {
             startTick: function() {
                 this.tickStarted = true;
                 setInterval(function(){
-                    console.log(game.screenShiftMovementY+" "+game.screenShiftMovementX);
                     if(game.screenShift !== 0){
                         if(game.screenShift > 0) {
                             game.screenShift--;

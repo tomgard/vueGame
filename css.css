@@ -8,7 +8,7 @@ body {
 }
 #gameContainer {
     margin-top:180px;
-    transform: scale(3);
+    
 }
 .tileArea {
     position: absolute;
