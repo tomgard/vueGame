@@ -6,7 +6,6 @@ $(function() {
             display:'none',
             player: "sprites/ranger_f.png",
             playerRow: 1,
-            fps: 25,
             tileSize: map.tilesets[0].tilewidth,
             x: 0,
             y: 0,
@@ -19,7 +18,11 @@ $(function() {
             imageHeight: map.tilesets[0].imageheight / map.tilesets[0].tilewidth,
             direction: "down",
             screenShift: 0,
-            tickStarted: false
+            tickStarted: false,
+            moveable: [
+                {row:8, column:0},
+                {row:0, column:9}
+            ]
         },
         computed: {
             screenWidthPixels: function () {
@@ -60,7 +63,6 @@ $(function() {
                 return this.screenShift * change[this.direction.toLowerCase()];
             },
             nextToPlayer: function() {
-                console.log("up: r"+this.items[45].row+" c"+this.items[45].column);
                 return {
                     up: this.items[45],
                     down: this.items[71],
@@ -92,7 +94,7 @@ $(function() {
                 var directionChange = directionChanges[event.key];
                 var direction = event.key.replace("Arrow","").toLowerCase();
                 if(directionChange && this.screenShift === 0){
-                    if(direction === this.direction.toLowerCase()) {
+                    if(direction === this.direction.toLowerCase() && this.canMove(direction)) {
                         var newX = this.x + directionChange.x;
                         var newY = this.y + directionChange.y;
                         if(newX > -1 && newX + this.screenWidth < this.mapWidth+1 && newY > -1 && newY + this.screenHeight < this.mapHeight+1){
@@ -105,6 +107,16 @@ $(function() {
                     this.playerRow = directionChanges[event.key].spritePos;
                 }
             },
+            canMove: function(direction){
+                var cellToMoveTo = this.nextToPlayer[direction];
+                for(var c = 0; c < this.moveable.length; c++){
+                    moveableCell = this.moveable[c];
+                    if(moveableCell.row == cellToMoveTo.row && moveableCell.column == cellToMoveTo.column){
+                        return true;
+                    }
+                }
+                return false;
+            },
             startTick: function() {
                 this.tickStarted = true;
                 setInterval(function(){
@@ -115,7 +127,7 @@ $(function() {
                             game.screenShift++;
                         }
                     }
-                } , (1000/25) );
+                } , (1000/40) );
             }
         }
     });
