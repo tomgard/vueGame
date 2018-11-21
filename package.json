@@ -1,0 +1,19 @@
+{
+  "name": "vuegame",
+  "version": "1.0.0",
+  "description": "game in vue",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomgard/vueGame.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomgard/vueGame/issues"
+  },
+  "homepage": "https://github.com/tomgard/vueGame#readme"
+}
