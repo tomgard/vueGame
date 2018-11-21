@@ -26,7 +26,7 @@
         return $ip;
     }
     if($_GET["x"] && $_GET["y"] && $_GET["direction"] && $_GET["sprite"]){
-        data = getData();
+        $data = getData();
         
     } else {
         echo "error";
