@@ -24,12 +24,6 @@
                 </div>
             </div>
             <input id="control" v-on:keydown.up.down.left.right="keyDown($event)" type="text" />
-            <div class="debug">
-                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -nextToPlayer.up.column * tileSize + 'px', 'margin-top': -nextToPlayer.up.row * tileSize + 'px' }" /></div>Up<br />
-                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -nextToPlayer.down.column * tileSize + 'px', 'margin-top': -nextToPlayer.down.row * tileSize + 'px' }" /></div>Down<br />
-                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -nextToPlayer.left.column * tileSize + 'px', 'margin-top': -nextToPlayer.left.row * tileSize + 'px' }" /></div>Left<br />
-                <div class="cell"><img src='tile.png' v-bind:style="{ 'margin-left': -nextToPlayer.right.column * tileSize + 'px', 'margin-top': -nextToPlayer.right.row * tileSize + 'px' }" /></div>Right
-            </div>
         </div>
     </body>
 </html>

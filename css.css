@@ -69,10 +69,3 @@ body {
     height:72px;
     width:48px;
 }
-.debug {
-    z-index:1000000;
-    position:absolute;
-    top:0px;
-    left:600px;
-    background:red;
-}
