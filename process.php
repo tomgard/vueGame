@@ -2,7 +2,7 @@
     $file = "data.txt";
     $data = [];
     function getData() {
-        return file_get_contents ($file).json_decode();
+        return file_get_contents($file).json_decode();
     }
     
     function saveData() {
