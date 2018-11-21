@@ -1,16 +1,15 @@
 <?php
     $file = ["data.txt"];
     $data = [];
-    function getData()
-    {
-        return file_get_contents (file).json_decode();
+    function getData() {
+        return file_get_contents ($file).json_decode();
     }
-    function saveData()
-    {
-        file_put_contents(file, data.json_encode());
+    
+    function saveData() {
+        file_put_contents($file, $data.json_encode());
     }
-    function getRealIpAddr()
-    {
+    
+    function getRealIpAddr() {
         if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
         {
           $ip=$_SERVER['HTTP_CLIENT_IP'];
@@ -25,6 +24,7 @@
         }
         return $ip;
     }
+    
     if($_GET["x"] && $_GET["y"] && $_GET["direction"] && $_GET["sprite"]){
         $data = getData();
         
