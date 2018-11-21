@@ -1,5 +1,5 @@
 <?php
-    $file = "data.txt";
+    $file = ["data.txt"];
     $data = [];
     function getData()
     {
