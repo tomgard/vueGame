@@ -9,7 +9,7 @@
     {
         file_put_contents(file, data.serialize());
     }
-    if($_POST["x"] && $_POST["y"] && $_POST["direction"] && $_POST["sprite"]){
+    if($_GET["x"] && $_GET["y"] && $_GET["direction"] && $_GET["sprite"]){
         echo "all data present";
     } else {
         echo "error";
