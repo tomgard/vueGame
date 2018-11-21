@@ -1,0 +1,35 @@
+{
+    data: [
+        {
+            sprite:"healer_f.png",
+            direction:"up",
+            x:1,
+            y:1
+        }
+        {
+            sprite:"healer_f.png",
+            direction:"up",
+            x:1,
+            y:1
+        }
+        {
+            sprite:"healer_f.png",
+            direction:"up",
+            x:1,
+            y:1
+        }
+        {
+            sprite:"healer_f.png",
+            direction:"up",
+            x:1,
+            y:1
+        }
+        {
+            sprite:"healer_f.png",
+            direction:"up",
+            x:1,
+            y:1
+        }
+    ]
+    
+}
