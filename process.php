@@ -1,12 +1,11 @@
 <?php
-    $file = "data.txt";
     $data = [];
     function getData() {
-        return file_get_contents($file).json_decode();
+        return file_get_contents("data.txt").json_decode();
     }
     
     function saveData() {
-        file_put_contents($file, $data.json_encode());
+        file_put_contents("data.txt", $data.json_encode());
     }
     
     function getRealIpAddr() {
