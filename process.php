@@ -28,7 +28,7 @@
         $data = getData();
         return $data;
     } else {
-        echo "error on " + getRealIpAddr();
+        echo "error on " . getRealIpAddr();
     }
     
 ?>
