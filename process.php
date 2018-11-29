@@ -26,9 +26,9 @@
     
     if($_GET["x"] && $_GET["y"] && $_GET["direction"] && $_GET["sprite"]){
         $data = getData();
-        return $data;
+        echo $data;
     } else {
-        echo "error on " . getRealIpAddr();
+        echo "error";
     }
     
 ?>
